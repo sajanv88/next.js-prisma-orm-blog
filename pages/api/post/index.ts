@@ -17,7 +17,7 @@ export default async function handler(
     if (req.method === 'POST') {
         try {
             const response = await createPost(req.body as Post);
-            res.status(201).json({ data: [{ title: response.title, description: response.description, id: response.id }] })
+            res.status(201).json({ data: [response] })
         } catch (err: unknown) {
             const e = err as unknown as Error;
             console.log(e.message);
